@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Purple Color Palette */
+:root {
+  --background: #93B1A6;
+  --foreground: #040D12;
+  --primary-dark: #040D12;
+  --secondary-dark: #183D3D;
+  --medium: #5C8374;
+  --light: #93B1A6;
+
+  /* New Purple Palette Variables */
+  --purple-dark: #352F44;
+  --purple-medium: #5C5470;
+  --purple-light: #B9B4C7;
+  --cream-light: #FAF0E6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #040D12;
+    --foreground: #FFFFFF;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 3s ease-in-out infinite 1.5s;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e8f0ed;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93B1A6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5C8374;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #183D3D;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #5C8374;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #93B1A6;
+}
+
+/* Wave animation for navigation buttons */
+@keyframes waveFlow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateY(0px);
+  }
+  25% {
+    background-position: 50% 25%;
+    transform: translateY(-1px);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: translateY(0px);
+  }
+  75% {
+    background-position: 50% 75%;
+    transform: translateY(1px);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateY(0px);
+  }
+}
+
+/* Darker wavy animation for navigation buttons */
+@keyframes darkWaveFlow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateY(0px) scale(1);
+  }
+  20% {
+    background-position: 25% 30%;
+    transform: translateY(-0.5px) scale(1.01);
+  }
+  40% {
+    background-position: 75% 70%;
+    transform: translateY(0.5px) scale(1);
+  }
+  60% {
+    background-position: 100% 40%;
+    transform: translateY(-0.5px) scale(1.01);
+  }
+  80% {
+    background-position: 50% 80%;
+    transform: translateY(0.5px) scale(1);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Hero text animations */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Background shadow animation for name */
+@keyframes nameShadowGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.7), 0 0 90px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero text utility classes */
+.hero-text-glow {
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 25%, #ffffff 50%, #e0e0e0 75%, #ffffff 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.hero-name-shadow {
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.85), 0 0 50px rgba(0, 0, 0, 0.65), 0 0 75px rgba(0, 0, 0, 0.45);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.25));
+}
+
+/* Profile picture animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Background breathing animation for HeroSection */
+@keyframes backgroundBreathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-background-breathe {
+  animation: backgroundBreathe 3.3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* MD Sans Font Configuration */
+.font-md-sans {
+  font-family: var(--font-md-sans), 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Force dark mode globally and body styles */
+* {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-md-sans), 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Apply MD Sans globally to all elements */
+*, *::before, *::after {
+  font-family: var(--font-md-sans), 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Ensure headings use MD Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-md-sans), 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Ensure buttons and inputs use MD Sans */
+button, input, textarea, select {
+  font-family: var(--font-md-sans), 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .bg-pattern {
+    background-image: url('/images/bg-pattern.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .animate-wave-flow {
+    animation: waveFlow 15s ease infinite;
+  }
+
+  /* Mobile-specific optimizations */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .mobile-text-scale {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+
+  .mobile-heading-scale {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  /* Improve mobile scrolling */
+  .mobile-scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for mobile performance */
+  @media (max-width: 768px) {
+    .reduce-motion * {
+      animation-duration: 0.3s !important;
+      transition-duration: 0.3s !important;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+
+    * {
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Fix for mobile viewport units */
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  /* Mobile Navigation Background Animations */
+  @media (max-width: 768px) {
+    @keyframes gradient-shift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes pulse-slow {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes float-1 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.2;
+      }
+      33% {
+        transform: translateY(-10px) translateX(5px);
+        opacity: 0.4;
+      }
+      66% {
+        transform: translateY(5px) translateX(-3px);
+        opacity: 0.1;
+      }
+    }
+
+    @keyframes float-2 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.15;
+      }
+      50% {
+        transform: translateY(-8px) translateX(-4px);
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes float-3 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.1;
+      }
+      25% {
+        transform: translateY(6px) translateX(3px);
+        opacity: 0.25;
+      }
+      75% {
+        transform: translateY(-4px) translateX(-2px);
+        opacity: 0.05;
+      }
+    }
+
+    .animate-gradient-shift {
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease-in-out infinite;
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+
+    .animate-float-1 {
+      animation: float-1 6s ease-in-out infinite;
+    }
+
+    .animate-float-2 {
+      animation: float-2 8s ease-in-out infinite 1s;
+    }
+
+    .animate-float-3 {
+      animation: float-3 7s ease-in-out infinite 2s;
+    }
+  }
+}
