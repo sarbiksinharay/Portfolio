@@ -32,7 +32,18 @@ export interface Skill extends BaseEntity {
   yearsOfExperience?: number;
 }
 
-export type SkillCategory = 'frontend' | 'backend' | 'tools' | 'design' | 'database' | 'cloud';
+// Updated SkillCategory to include all categories used in skills.ts
+export type SkillCategory =
+  | 'frontend'
+  | 'backend'
+  | 'tools'
+  | 'design'
+  | 'database'
+  | 'cloud'
+  | 'iot'
+  | 'ai'
+  | 'blockchain';
+
 export type SkillProficiency = 1 | 2 | 3 | 4 | 5;
 
 export interface Experience extends BaseEntity {
